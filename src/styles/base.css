@@ -1,0 +1,14 @@
+/* Developer variables */
+:root {
+  /* main colors */
+  --color-background: var(--surface-dark);
+  --color-foreground: var(--text-light);
+
+  /* Header */
+  --background-color-header: var(--color-white);
+  --text-color-header: var(--color-neutral-1000);
+  
+  /* Footer */
+  --background-color-footer: var(--color-white);
+  --text-color-footer: var(--color-neutral-1000);
+}
