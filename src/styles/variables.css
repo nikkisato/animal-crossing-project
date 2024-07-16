@@ -55,6 +55,7 @@
   /* Border Colors */
   --border-border-highlight: var(--color-brand-green-2);
   --border-border-primary: var(--color-neutral-500);
+
   /* Primary States Colors */
   --states-primary-active: var(--color-neutral-700);
   --states-primary-disabled: var(--color-neutral-200);

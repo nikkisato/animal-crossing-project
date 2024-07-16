@@ -21,6 +21,8 @@
     "paths": {
       "@*": ["./*"],
       "@src/*": ["./src/*"],
+      "@public": ["./public"],
+      "@public/*": ["./public/*"],
       "@assets": ["./src/assets"],
       "@assets/*": ["./src/assets/*"],
       "@data": ["./src/data"],

@@ -3,7 +3,7 @@ import { Header, Footer } from '@components';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={'page-margin'}>
       {/* Animal Crossing Announcement Bar */}
       <Header />
       {/* Animal crossing Hero  */}
