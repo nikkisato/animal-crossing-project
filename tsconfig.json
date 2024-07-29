@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./", // Base directory for resolving non-relative module imports
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,7 +19,22 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@*": ["./*"],
+      "@src/*": ["./src/*"],
+      "@public": ["./public"],
+      "@public/*": ["./public/*"],
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"],
+      "@data": ["./src/data"],
+      "@data/*": ["./src/data/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
+      "@lib": ["./src/lib"],
+      "@lib/*": ["./src/lib/*"],
+      "@styles/": ["./src/styles/"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils": ["./src/utils"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
