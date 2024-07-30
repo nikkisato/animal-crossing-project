@@ -9,12 +9,19 @@ export default async function fetchAllVillagers() {
   }
 
   try {
-    return await fetch(baseURl, {
+    const response = await fetch(baseURl, {
       headers: { 'X-API-Key': apiKey },
-    })
-      .then((response) => response.json())
-      .then((data) => data);
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error fetching villagers: ${response.statusText}`);
+    }
+
+    // Need to await for the response
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log('Error fetching villagers: ', error);
+    throw error;
   }
 }
