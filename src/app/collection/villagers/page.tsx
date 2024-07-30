@@ -20,14 +20,20 @@ export default async function CollectionPage() {
       <Header />
       <h1>Collection Villagers</h1>
 
-      {/* <CheckboxGroup.Root
+      {/* {fetchAllVillagers.map((villager: AnimalCrossingVillager) => {
+        return {
+          <CheckboxGroup.Root
         defaultValue={['1']}
         name="villager"
       >
+
+      return (
         <CheckboxGroup.Item value="1">Fun</CheckboxGroup.Item>
-        <CheckboxGroup.Item value="2">Serious</CheckboxGroup.Item>
-        <CheckboxGroup.Item value="3">Smart</CheckboxGroup.Item>
-      </CheckboxGroup.Root> */}
+      )
+
+      </CheckboxGroup.Root>
+        };
+      })} */}
 
       {/* <Grid
         columns="3"
