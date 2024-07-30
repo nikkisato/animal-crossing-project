@@ -1,6 +1,7 @@
 import { AnimalCrossingVillager } from '@src/utils/AllVillagersProps';
 import Image from 'next/image';
 import { Box, Card, Flex, Heading, Text, Blockquote, Inset } from '@radix-ui/themes';
+import styles from './Card.module.css';
 
 export default function CardComponent({ villager }: { villager: AnimalCrossingVillager }) {
   const {
@@ -18,7 +19,10 @@ export default function CardComponent({ villager }: { villager: AnimalCrossingVi
     gender,
   } = villager;
   return (
-    <Box maxWidth="240px">
+    <Box
+      maxWidth="250px"
+      className={styles.card}
+    >
       <Card>
         <Flex
           gap="3"
@@ -49,7 +53,7 @@ export default function CardComponent({ villager }: { villager: AnimalCrossingVi
               as="h2"
               size="2"
             >
-              {name}
+              Name: {name}
             </Heading>
 
             <Text
@@ -57,21 +61,21 @@ export default function CardComponent({ villager }: { villager: AnimalCrossingVi
               size="2"
               color="gray"
             >
-              {species}
+              Species: {species}
             </Text>
             <Text
               as="p"
               size="2"
               color="gray"
             >
-              {gender}
+              Gender: {gender}
             </Text>
             <Text
               as="p"
               size="2"
               color="gray"
             >
-              {personality}
+              Personality: {personality}
             </Text>
             <Blockquote>{quote}</Blockquote>
             <Text
@@ -79,28 +83,21 @@ export default function CardComponent({ villager }: { villager: AnimalCrossingVi
               size="2"
               color="gray"
             >
-              {phrase}
+              Phrase: {phrase}
             </Text>
             <Text
               as="p"
               size="2"
               color="gray"
             >
-              {sign}
+              Sign: {sign}
             </Text>
             <Text
               as="p"
               size="2"
               color="gray"
             >
-              {birthday_month}
-            </Text>
-            <Text
-              as="p"
-              size="2"
-              color="gray"
-            >
-              {birthday_day}
+              {birthday_month} / {birthday_day}
             </Text>
           </Box>
         </Flex>
