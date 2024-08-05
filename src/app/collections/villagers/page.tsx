@@ -1,19 +1,40 @@
 import styles from './page.module.css';
 import { Header, Footer } from '@components';
+
 import CardComponent from '@src/components/Card/Card';
 import { AnimalCrossingVillager } from '@src/utils/AllVillagersProps';
 
-import { Grid } from '@radix-ui/themes';
+import { Grid, CheckboxGroup } from '@radix-ui/themes';
 
 import fetchAllVillagers from '@src/utils/fetchAllVillagers';
 
-export default async function Home() {
+export default async function CollectionPage() {
+  /* TO DO */
+  // Create a checkbox Group for the following:
+  // species, personality, gender, birthday_month, sign
+
   // const villagers = await fetchAllVillagers();
 
   return (
     <main className={'page-margin'}>
-      {/* Animal Crossing Announcement Bar */}
       <Header />
+      <h1>Collection Villagers</h1>
+
+      {/* {fetchAllVillagers.map((villager: AnimalCrossingVillager) => {
+        return {
+          <CheckboxGroup.Root
+        defaultValue={['1']}
+        name="villager"
+      >
+
+      return (
+        <CheckboxGroup.Item value="1">Fun</CheckboxGroup.Item>
+      )
+
+      </CheckboxGroup.Root>
+        };
+      })} */}
+
       {/* <Grid
         columns="3"
         gap="3"
@@ -30,11 +51,6 @@ export default async function Home() {
         })}
       </Grid> */}
 
-      {/* Animal crossing Hero  */}
-      {/* Animal Crossing Carousel */}
-      {/* Animal Crossing Items */}
-      {/* Animal Crossing Villagers */}
-      {/* Animal Crossing Dates/Events */}
       <Footer />
     </main>
   );

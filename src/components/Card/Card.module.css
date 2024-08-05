@@ -1,0 +1,11 @@
+.card {
+  --maxWidth: 300px;
+
+  width: var(--maxWidth);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1rem;
+  border-radius: 20px;
+  padding: 10px;
+}
