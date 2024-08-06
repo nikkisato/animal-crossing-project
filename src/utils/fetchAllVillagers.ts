@@ -18,7 +18,7 @@ export default async function fetchAllVillagers() {
     }
 
     // Need to await for the response
-    const data = await response.json();
+    const data = response.json();
     return data;
   } catch (error) {
     console.log('Error fetching villagers: ', error);

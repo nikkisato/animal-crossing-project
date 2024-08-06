@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './page.module.css';
 import { Header, Footer } from '@components';
 import CardComponent from '@src/components/Card/Card';
@@ -13,15 +15,18 @@ import CollectionComponent from '@src/components/CollectionComponent/CollectionC
  * Initial Data from the Nookpedia API returns an array
  */
 
-export default function Home() {
+export default async function Home() {
   /* Set up Initial Data from Nookpedia API */
-  const initialData = fetchAllVillagers();
+  const initialData = await fetchAllVillagers();
+
+  if (!initialData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main className={'page-margin'}>
       <Header />
       <CollectionComponent initialData={initialData} />
-
       <Footer />
     </main>
   );
