@@ -2,39 +2,26 @@ import styles from './page.module.css';
 import { Header, Footer } from '@components';
 import CardComponent from '@src/components/Card/Card';
 import { AnimalCrossingVillager } from '@src/utils/AllVillagersProps';
-
-import { Grid } from '@radix-ui/themes';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import * as Checkbox from '@radix-ui/react-checkbox';
 
 import fetchAllVillagers from '@src/utils/fetchAllVillagers';
+import CollectionComponent from '@src/components/CollectionComponent/CollectionComponent';
+/* PAGE COMPONENT */
+/**
+ *
+ * Initial Data from the Nookpedia API returns an array
+ */
 
-export default async function Home() {
-  // const villagers = await fetchAllVillagers();
+export default function Home() {
+  /* Set up Initial Data from Nookpedia API */
+  const initialData = fetchAllVillagers();
 
   return (
     <main className={'page-margin'}>
-      {/* Animal Crossing Announcement Bar */}
       <Header />
-      {/* <Grid
-        columns="3"
-        gap="3"
-        rows="repeat(2, 64px)"
-        width="auto"
-      >
-        {villagers.map((villager: AnimalCrossingVillager) => {
-          return (
-            <CardComponent
-              key={villager.id}
-              villager={villager}
-            />
-          );
-        })}
-      </Grid> */}
+      <CollectionComponent initialData={initialData} />
 
-      {/* Animal crossing Hero  */}
-      {/* Animal Crossing Carousel */}
-      {/* Animal Crossing Items */}
-      {/* Animal Crossing Villagers */}
-      {/* Animal Crossing Dates/Events */}
       <Footer />
     </main>
   );
