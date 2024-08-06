@@ -5,9 +5,22 @@ import CollectionFilter from '@src/components/CollectionFilter/CollectionFilter'
 
 import { useState } from 'react';
 
+import { AnimalCrossingVillager } from '@src/utils/AllVillagersProps';
 /* MAIN COMPONENT */
 
-export default function CollectionComponent({ initialData }) {
+interface Props {
+  initialData: AnimalCrossingVillager[];
+}
+
+interface FilterArgs {
+  gender: string;
+  species: string;
+  personality: string;
+  sign: string;
+  birthdayMonth: string;
+}
+
+export default function CollectionComponent({ initialData }: Props) {
   /* Set up Filterd State here */
   const [filteredData, setFilteredData] = useState(initialData);
 
@@ -19,49 +32,81 @@ export default function CollectionComponent({ initialData }) {
   const [birthdayMonth, setBirthdayMonth] = useState('');
 
   /* handleFilter Function */
-  function handleFilteredDataUpdate({ gender, species, personality, sign, birthday_month }) {
-    // initialData.Object.keys()
+  function handleFilteredDataUpdate({
+    gender,
+    species,
+    personality,
+    sign,
+    birthdayMonth,
+  }: FilterArgs) {
+    // the filteredData is gonna coming in as an array of objects, so we need to get the initialData lowerCase and filter it
+    const updatedData = filteredData
+      .filter((item) => {
+        if (gender === 'all') return true;
+        return item.gender === gender;
+      })
+      .filter((item) => {
+        return item.species === species;
+      })
+      .filter((item) => {
+        return item.personality === personality;
+      })
+      .filter((item) => {
+        return item.sign === sign;
+      })
+      .filter((item) => {
+        return item.birthday_month === birthdayMonth;
+      });
 
-    // the initialData is gonna coming in as an array of objects, so we need to get the initialData lowerCase and filter it
-    initialData
-      .toLowerCase()
-      .filter(gender)
-      .filter(species)
-      .filter(personality)
-      .filter(sign)
-      .filter(birthday_month);
+    /* quality check */
+
+    /* Method filter returns a new object */
 
     /* In my head it's gonna be like this */
 
-    const filteredDataUpdate = setFilteredData(initialData);
-
-    return filteredDataUpdate;
+    setFilteredData(updatedData);
   }
 
   function handleGenderUpdate(newGender: string) {
     setGender(newGender);
+    handleFilteredDataUpdate({ gender: newGender, species, personality, sign, birthdayMonth });
   }
 
   function handleSpeciesUpdate(newSpecies: string) {
     setSpecies(newSpecies);
+    handleFilteredDataUpdate({ gender, species: newSpecies, personality, sign, birthdayMonth });
   }
 
   function handlePersonalityUpdate(newPersonality: string) {
     setPersonality(newPersonality);
+    handleFilteredDataUpdate({ gender, species, personality: newPersonality, sign, birthdayMonth });
   }
 
   function handleSignUpdate(newSign: string) {
     setSign(newSign);
+    handleFilteredDataUpdate({ gender, species, personality, sign: newSign, birthdayMonth });
   }
 
   function handleBirthdayMonthUpdate(newBirthdayMonth: string) {
     setBirthdayMonth(newBirthdayMonth);
+    handleFilteredDataUpdate({
+      gender,
+      species,
+      personality,
+      sign,
+      birthdayMonth: newBirthdayMonth,
+    });
   }
 
   return (
     <div>
       <h1>Collection Component </h1>
-      {/* <CollectionFilter filteredData={filteredData} />
+      {/* <CollectionFilter 
+      initialData={initialData} 
+      handleGenderUpdate={handleGenderUpdate} 
+      gender={gender}  />
+
+
       <CollectionList filteredData={filteredData} /> */}
     </div>
   );

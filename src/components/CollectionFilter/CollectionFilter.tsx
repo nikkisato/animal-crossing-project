@@ -6,10 +6,21 @@ export default function CollectionFilter({ filteredData }) {
   /* This is the Filter Selection */
   /* NO STATE */
 
+  /* display just the forms 
+  needs to know initial Data, to be able to populate the checkboxes
+  species, species.length > 0 
+  form values 
+  onChange
+Have an all checkbox  to select all options 
+
+
+  */
+
   return (
     <form>
       <div className="flex items-center">
         {/* rendered the filtered Data Here  */}
+
         {filteredData &&
           filteredData.map((item) => {
             return (
