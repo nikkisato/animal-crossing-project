@@ -1,7 +1,41 @@
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import * as Checkbox from '@radix-ui/react-checkbox';
+import { AnimalCrossingVillager } from '@src/utils/AllVillagersProps';
 
-export default function CollectionFilter({ filteredData }) {
+import React from 'react';
+import * as Select from '@radix-ui/react-select';
+import classnames from 'classnames';
+// import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+interface Props {
+  initialData: AnimalCrossingVillager[];
+  gender: string;
+  species: string;
+  personality: string;
+  sign: string;
+  birthdayMonth: string;
+  handleGenderUpdate: (gender: string) => void;
+  handleSpeciesUpdate: (species: string) => void;
+  handlePersonalityUpdate: (personality: string) => void;
+  handleSignUpdate: (sign: string) => void;
+  handleBirthdayMonthUpdate: (birthdayMonth: string) => void;
+}
+
+export default function CollectionFilter({
+  initialData,
+  gender,
+  species,
+  personality,
+  sign,
+  birthdayMonth,
+  handleGenderUpdate,
+  handleSpeciesUpdate,
+  handlePersonalityUpdate,
+  handleSignUpdate,
+  handleBirthdayMonthUpdate,
+}: Props) {
   /*Filtered Data is being passed from Page */
   /* This is the Filter Selection */
   /* NO STATE */
@@ -11,39 +45,31 @@ export default function CollectionFilter({ filteredData }) {
   species, species.length > 0 
   form values 
   onChange
-Have an all checkbox  to select all options 
-
-
+  Have an all checkbox  to select all options 
   */
 
   return (
     <form>
       <div className="flex items-center">
-        {/* rendered the filtered Data Here  */}
-
-        {filteredData &&
-          filteredData.map((item) => {
-            return (
-              <Checkbox.Root
-                key={item.id}
-                className="shadow-blackA4 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:shadow-[0_0_0_2px_black]"
-                defaultChecked
-                id="c1"
-              >
-                <div>
-                  <Checkbox.Indicator className="text-violet11">
-                    <CheckBoxIcon />
-                  </Checkbox.Indicator>
-                  <label
-                    className="pl-[15px] text-[15px] leading-none text-white"
-                    htmlFor="c1"
-                  >
-                    {item.name}
-                  </label>
-                </div>
-              </Checkbox.Root>
-            );
-          })}
+        <Select.Root>
+          <Select.Trigger aria-label="Gender">
+            <Select.Value placeholder="Select a Gender" />
+            <Select.Icon className="text-violet11">
+              <ExpandMoreIcon />
+            </Select.Icon>
+          </Select.Trigger>
+          <Select.Portal>
+            <Select.Content>
+              <Select.Viewport className="p-[5px]">
+                <Select.Group>
+                  <Select.Item value="male">Male</Select.Item>
+                  <Select.Item value="female">Female</Select.Item>
+                  <Select.Item value="all">All</Select.Item>
+                </Select.Group>
+              </Select.Viewport>
+            </Select.Content>
+          </Select.Portal>
+        </Select.Root>
       </div>
     </form>
   );

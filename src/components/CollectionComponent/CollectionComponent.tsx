@@ -46,15 +46,19 @@ export default function CollectionComponent({ initialData }: Props) {
         return item.gender === gender;
       })
       .filter((item) => {
+        if (species === 'all') return true;
         return item.species === species;
       })
       .filter((item) => {
+        if (personality === 'all') return true;
         return item.personality === personality;
       })
       .filter((item) => {
+        if (sign === 'all') return true;
         return item.sign === sign;
       })
       .filter((item) => {
+        if (birthdayMonth === 'all') return true;
         return item.birthday_month === birthdayMonth;
       });
 
@@ -101,13 +105,21 @@ export default function CollectionComponent({ initialData }: Props) {
   return (
     <div>
       <h1>Collection Component </h1>
-      {/* <CollectionFilter 
-      initialData={initialData} 
-      handleGenderUpdate={handleGenderUpdate} 
-      gender={gender}  />
+      <CollectionFilter
+        initialData={initialData}
+        handleGenderUpdate={handleGenderUpdate}
+        gender={gender}
+        handleSpeciesUpdate={handleSpeciesUpdate}
+        species={species}
+        handlePersonalityUpdate={handlePersonalityUpdate}
+        personality={personality}
+        handleSignUpdate={handleSignUpdate}
+        sign={sign}
+        handleBirthdayMonthUpdate={handleBirthdayMonthUpdate}
+        birthdayMonth={birthdayMonth}
+      />
 
-
-      <CollectionList filteredData={filteredData} /> */}
+      {/* <CollectionList filteredData={filteredData} /> */}
     </div>
   );
 }
